@@ -1,0 +1,306 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --cream-50: #FFFDF9;
+    --cream-100: #FBF7EE;
+    --cream-200: #F5EFEB;
+    --cream-300: #EDE3D5;
+    
+    --tomato: #E03E26;
+    --tomato-hover: #C8321C;
+    --tomato-glow: rgba(224, 62, 38, 0.28);
+    
+    --orange: #F26419;
+    --orange-warm: #F97316;
+    --saffron: #F59E0B;
+    
+    --green-fresh: #16A34A;
+    --green-deep: #15803D;
+    --green-soft: #DCFCE7;
+    
+    --charcoal: #181614;
+    --charcoal-soft: #242220;
+    --charcoal-muted: #645F5B;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFFDF9;
+  color: #181614;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  background-image: radial-gradient(#F5EFEB 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Leaflet Map custom styles */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  border-radius: 1.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.custom-food-marker {
+  background: transparent;
+  border: none;
+}
+
+.state-map-tooltip {
+  background: rgba(24, 22, 20, 0.92) !important;
+  color: #FFFDF9 !important;
+  border: 1px solid rgba(237, 227, 213, 0.4) !important;
+  border-radius: 10px !important;
+  padding: 6px 10px !important;
+  font-size: 11px !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+.state-map-tooltip::before {
+  border-top-color: rgba(24, 22, 20, 0.92) !important;
+}
+
+/* Organic Shapes & Glass Utilities */
+.foodie-glass {
+  background: rgba(255, 253, 249, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.organic-card {
+  border-radius: 28px 12px 28px 12px;
+}
+
+.organic-card-alt {
+  border-radius: 14px 28px 14px 28px;
+}
+
+.organic-badge {
+  border-radius: 16px 6px 16px 6px;
+}
+
+.shadow-warm-sm {
+  box-shadow: 0 4px 14px -2px rgba(24, 22, 20, 0.05), 0 2px 6px -1px rgba(224, 62, 38, 0.04);
+}
+
+.shadow-warm-md {
+  box-shadow: 0 12px 32px -6px rgba(24, 22, 20, 0.07), 0 4px 14px -2px rgba(224, 62, 38, 0.06);
+}
+
+.shadow-warm-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shadow-warm-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(224, 62, 38, 0.16), 0 8px 18px -4px rgba(24, 22, 20, 0.08);
+}
+
+/* 1-SECOND ENTRANCE ANIMATION SEQUENCE */
+@keyframes entryBg {
+  0% { opacity: 0; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes iconPop {
+  0% { transform: scale(0) rotate(-25deg); opacity: 0; }
+  70% { transform: scale(1.15) rotate(4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes slideFoodie {
+  0% { opacity: 0; transform: translateX(-32px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideFindings {
+  0% { opacity: 0; transform: translateX(32px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes taglineUp {
+  0% { opacity: 0; transform: translateY(22px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes foodElemStagger {
+  0% { opacity: 0; transform: translateY(28px) scale(0.85); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Entrance Sequence Classes */
+.anim-entry-bg {
+  animation: entryBg 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.anim-icon-scale {
+  animation: iconPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
+}
+
+.anim-foodie-slide {
+  animation: slideFoodie 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+}
+
+.anim-findings-slide {
+  animation: slideFindings 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.anim-tagline-up {
+  animation: taglineUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.52s both;
+}
+
+.anim-food-elem-1 {
+  animation: foodElemStagger 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 0.4s both;
+}
+
+.anim-food-elem-2 {
+  animation: foodElemStagger 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 0.52s both;
+}
+
+.anim-food-elem-3 {
+  animation: foodElemStagger 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 0.64s both;
+}
+
+.anim-food-elem-4 {
+  animation: foodElemStagger 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 0.76s both;
+}
+
+.anim-food-elem-5 {
+  animation: foodElemStagger 0.6s cubic-bezier(0.34, 1.3, 0.64, 1) 0.88s both;
+}
+
+/* CONTINUOUS FLOATING ANIMATIONS */
+@keyframes floatGently {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(1.5deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(9px) rotate(-1.5deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.02);
+  }
+}
+
+@keyframes steamCurling {
+  0% {
+    transform: translateY(0px) scaleX(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-8px) scaleX(1.15);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-16px) scaleX(1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseRadar {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.float-gently {
+  animation: floatGently 4.8s ease-in-out infinite;
+}
+
+.float-reverse {
+  animation: floatReverse 5.4s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: floatSlow 6.2s ease-in-out infinite;
+}
+
+.steam-curl {
+  animation: steamCurling 2.4s ease-out infinite;
+}
+
+.pulse-radar-ring {
+  animation: pulseRadar 2.2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animation-play-state-paused {
+  animation-play-state: paused !important;
+}
+
+/* Accessibility: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+
+  .anim-entry-bg,
+  .anim-icon-scale,
+  .anim-foodie-slide,
+  .anim-findings-slide,
+  .anim-tagline-up,
+  .anim-food-elem-1,
+  .anim-food-elem-2,
+  .anim-food-elem-3,
+  .anim-food-elem-4,
+  .anim-food-elem-5,
+  .float-gently,
+  .float-reverse,
+  .float-slow,
+  .pulse-radar-ring {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
